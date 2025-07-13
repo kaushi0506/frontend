@@ -1,9 +1,10 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route  } from "react-router-dom";
 import Home from "./components/Home/home";
 import "./App.css";
-import AddUser from "./components/User/user";
 import UserDetails from "./components/UserDetails/Users";
+import AddUser from "./components/AddUser/AddUser";
+import UpdateUser from "./components/UpdateUser/UpdateUser";
 import Nav from "./components/NavbarTemp/NavbarTemp";
 
 
@@ -11,13 +12,19 @@ function App() {
   return (
     <>
       <Nav />
-      <Routes>
-        <Route path="/" element={<Navigate to="/mainhome" />} />
+      
+        <React.Fragment>
+          <Routes>
+        <Route path="/" element ={<Home/>}/>
         <Route path="/mainhome" element={<Home />} />
-        <Route path="/adduser" element={<AddUser />} />
-         <Route path="/Users" element={<UserDetails />} />
+        <Route path="/UserDetails" element={<UserDetails/>} />
+         <Route path="/AddUser" element={<AddUser />} />
+         <Route path="/UserDetails/:_id" element={<UpdateUser/>} />
+          </Routes>
+        </React.Fragment>
+        
  
-      </Routes>
+     
     </>
   );
 }

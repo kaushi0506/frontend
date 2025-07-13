@@ -1,20 +1,28 @@
-import React from 'react';
+import React from 'react'
+import { Link } from "react-router-dom";
 
-function User({ user }) {
-  const { _id, name, gmail, age, Address } = user;
 
+function User(props) {
+  const {_id,name,gmail,age,Address}=props.user;
   return (
     <div>
-      <h2>User Display</h2>
-      <p>ID: {_id}</p>
-      <p>Name: {name}</p>
-      <p>Gmail: {gmail}</p>
-      <p>Age: {age}</p>
-      <p>Address: {Address}</p>
-      <button>Update</button>
-      <button>Delete</button>
+
+
+
+<h1>ID: {_id}</h1>
+<h1>Name:{name}</h1>
+<h1>Gmail:{gmail}</h1>
+<h1>Age:{age}</h1>
+<h1>Address:{Address}</h1>
+ <Link to={`/UserDetails/${_id}`}>
+        <button className="btn btn-primary">Update</button>
+      </Link>
+<button>Delete</button>
+<br></br>
+
+
     </div>
-  );
+  )
 }
 
-export default User;
+export default User
